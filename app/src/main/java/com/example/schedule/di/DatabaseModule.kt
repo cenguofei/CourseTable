@@ -2,7 +2,6 @@ package com.example.schedule.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.schedule.data.local.CourseDao
 import com.example.schedule.data.local.CourseDatabase
 import com.example.schedule.data.local.CourseRepository
 import dagger.Module
@@ -19,7 +18,7 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext context:Context) : CourseDatabase =
+    fun provideDatabase(@ApplicationContext context: Context): CourseDatabase =
         Room.databaseBuilder(
             context.applicationContext,
             CourseDatabase::class.java,
@@ -31,6 +30,6 @@ class DatabaseModule {
     fun provideLocalRepository(
         courseDatabase: CourseDatabase,
         @IoDispatcher ioDispatcher: CoroutineDispatcher
-    ):CourseRepository =
-        CourseRepository(courseDatabase,ioDispatcher)
+    ): CourseRepository =
+        CourseRepository(courseDatabase, ioDispatcher)
 }

@@ -6,7 +6,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableStateOf
@@ -37,7 +39,7 @@ fun AddScreen(
     scaffoldState: ScaffoldState,
     onBack: () -> Unit,
     verticalScrollState: ScrollState = rememberScrollState(),
-    onComplete:() -> Unit
+    onComplete: () -> Unit
 ) {
     val messageState = remember { mutableStateOf(false) }
 
@@ -57,7 +59,7 @@ fun AddScreen(
             }
         })
 
-        if (messageState.value){
+        if (messageState.value) {
 //            ShowDialog {
 //                messageState.value = false
 //            }
@@ -90,8 +92,8 @@ private fun AddContent(
     scaffoldState: ScaffoldState,
     onBack: () -> Unit,
     verticalScrollState: ScrollState,
-    onNotValid:() -> Unit,
-    onComplete:() -> Unit
+    onNotValid: () -> Unit,
+    onComplete: () -> Unit
 ) {
     ScaffoldLayout(
         scaffoldState = scaffoldState,
@@ -104,7 +106,7 @@ private fun AddContent(
         },
         floatingActionButtonContent = {
             BottomAddFloatingActionButton(
-                onAdd = { viewModel.save(onNotValid = onNotValid,onComplete = onComplete) }
+                onAdd = { viewModel.save(onNotValid = onNotValid, onComplete = onComplete) }
             )
         },
         drawerGesturesEnabled = false
@@ -118,7 +120,7 @@ private fun AddContent(
                 onLabelChange = { viewModel.onWeekChange(it) },
                 scrollState = rememberScrollState(),
                 data = weeks.keys,
-                isSelected = { it == viewModel.week}
+                isSelected = { it == viewModel.week }
             )
 
             TextBoldComponent(text = "Enter teacher name")
@@ -132,7 +134,7 @@ private fun AddContent(
                 onLabelChange = { viewModel.onInternalChange(it, courses, false) },
                 scrollState = rememberScrollState(),
                 data = courses.keys,
-                isSelected = { it == viewModel.firstCourse.text || it == viewModel.lastCourse.text}
+                isSelected = { it == viewModel.firstCourse.text || it == viewModel.lastCourse.text }
             )
 
             TextBoldComponent(text = "Select start week and end week")
@@ -140,7 +142,7 @@ private fun AddContent(
                 onLabelChange = { viewModel.onInternalChange(it, weeksNumber, true) },
                 scrollState = rememberScrollState(),
                 data = weeksNumber.keys,
-                isSelected = { it == viewModel.weekStart.text || it == viewModel.weekEnd.text}
+                isSelected = { it == viewModel.weekStart.text || it == viewModel.weekEnd.text }
             )
         }
     }

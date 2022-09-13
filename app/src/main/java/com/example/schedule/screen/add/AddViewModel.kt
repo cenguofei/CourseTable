@@ -100,8 +100,8 @@ class AddViewModel @Inject constructor(
     }
 
     fun save(
-        onNotValid:() -> Unit,
-        onComplete:() -> Unit
+        onNotValid: () -> Unit,
+        onComplete: () -> Unit
     ) {
         if (notValid()) {
             onNotValid()

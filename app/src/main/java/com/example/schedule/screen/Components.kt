@@ -1,6 +1,5 @@
 package com.example.schedule.screen
 
-import android.app.AlertDialog
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -17,7 +16,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -35,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import androidx.compose.ui.window.PopupProperties
 import com.example.schedule.R
 import kotlinx.coroutines.delay
 
@@ -72,7 +69,7 @@ fun SnackBar(
                 )
             )
         }
-        LaunchedEffect(Unit){
+        LaunchedEffect(Unit) {
             delay(1000)
             visible.value = false
         }
@@ -81,14 +78,14 @@ fun SnackBar(
 
 @Composable
 fun AlertDialogComponent(
-    shown:Boolean,
+    shown: Boolean,
     text: String = "Are you sure to continue?",
-    confirm:String = "confirm",
-    cancel:String = "cancel",
+    confirm: String = "confirm",
+    cancel: String = "cancel",
     onDismissRequest: () -> Unit,
     onConfirmClick: () -> Unit,
-){
-    if (shown){
+) {
+    if (shown) {
         AlertDialog(
             onDismissRequest = onDismissRequest,
             text = { Text(text = text) },
@@ -109,7 +106,7 @@ fun AlertDialogComponent(
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun ShowDialog(onDismiss:() -> Unit) {
+fun ShowDialog(onDismiss: () -> Unit) {
     Dialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false), content = {
@@ -227,8 +224,8 @@ fun DrawerContent(
 @Composable
 fun DrawerItem(
     text: String,
-    onClick:() -> Unit
-){
+    onClick: () -> Unit
+) {
     TextButton(
         modifier = Modifier
             .fillMaxWidth()

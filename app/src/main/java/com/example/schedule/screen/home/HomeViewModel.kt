@@ -1,5 +1,7 @@
 package com.example.schedule.screen.home
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.schedule.DataResult
@@ -21,6 +23,7 @@ class HomeViewModel @Inject constructor(
     private val repository: CourseRepository
 ) : ViewModel() {
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private var _courses = repository.getAll().onStart { DataResult.Loading }
     private var _isLoading = MutableStateFlow(false)
 

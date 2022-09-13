@@ -12,8 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.schedule.screen.AlertDialogComponent
-import com.example.schedule.screen.add.AddViewModel
 import com.example.schedule.screen.add.AddScreen
+import com.example.schedule.screen.add.AddViewModel
 import com.example.schedule.screen.color.ColorScreen
 import com.example.schedule.screen.home.HomeScreen
 import com.example.schedule.screen.home.HomeViewModel
@@ -68,7 +68,7 @@ fun CourseGraph(
                 onDetail = {},
                 isLoading = homeUiState.value.isLoading,
                 onDeleteAll = { shown = true },
-                onDeleteOne = { homeViewModel.onDeleteOne(it)}
+                onDeleteOne = { homeViewModel.onDeleteOne(it) }
             )
             AlertDialogComponent(shown, onDismissRequest = { shown = false }) {
                 homeViewModel.onDeleteAll()
@@ -89,7 +89,7 @@ fun CourseGraph(
                 onOpenDrawer = { openDrawer() }
             )
         }
-        composable(Screen.ADD){
+        composable(Screen.ADD) {
             AddScreen(
                 onBack = { navigation.navigateToHome() },
                 viewModel = addViewModel,

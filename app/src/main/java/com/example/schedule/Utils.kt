@@ -33,7 +33,7 @@ inline val weeks: Map<String, Int>
         "Su" to 7
     )
 
-inline val weeksColors: Map<String,Color>
+inline val weeksColors: Map<String, Color>
     get() = mapOf(
         "Mo" to Color.Green,
         "Tu" to Color.Blue,
